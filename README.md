@@ -2,7 +2,7 @@ local Data = {}
 local DataFunctions = {}
 local Http = game:GetService("HttpService")
 
-function Data.new(name, data, filename)
+function Data.new(name, data)
 	if not isfolder(name) then
 		makefolder(name)
 	end
