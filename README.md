@@ -28,7 +28,7 @@ end
 function DataFunctions:Set(name, value)
 	self.Data[name] = value
 	writefile(self.FolderName.."/Settings.json", Http:JSONEncode(self.Data))
-end
+end 
 
 function DataFunctions:Get(name)
 	return self.Data[name]
