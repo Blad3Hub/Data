@@ -2,12 +2,12 @@ local Data = {}
 local DataFunctions = {}
 local Http = game:GetService("HttpService")
 
-function Data.new(name, filename, data)
+function Data.new(name, data, savedName)
 	if not isfolder(name) then
 		makefolder(name)
 	end
 
-    local savedData = isfile(name.."/"..filename..".json") and Http:JSONDecode(readfile(name.."/"..filename..".json"))
+    local savedData = isfile(name..game.Players.LocalPlayer.Name.."/.json") and Http:JSONDecode(readfile(name..game.Players.LocalPlayer.Name.."/.json"))
     
     if savedData then
         for i,v in pairs(data) do
@@ -28,7 +28,7 @@ end
 function DataFunctions:Set(name, value)
 	self.Data[name] = value
 	writefile(self.FolderName.."/Settings.json", Http:JSONEncode(self.Data))
-end 
+end
 
 function DataFunctions:Get(name)
 	return self.Data[name]
